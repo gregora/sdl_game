@@ -5,13 +5,14 @@ DrawableText::DrawableText (const char* message, int _x, int _y, SDL_Color color
     y = _y;
     SDL_Surface* surface = TTF_RenderText_Solid(game_font, message, color);
     if (surface == NULL) {
-        derror("TTF_RenderText_Blended");
+        derror("TTF_RenderText_Solid");
+        //TTF_RENDER
         return;
     }
 
     text_texture = SDL_CreateTextureFromSurface(renderer, surface);
     if (text_texture == NULL) {
-        derror("TTF_RenderText_Blended");
+        derror("SDL_CreateTextureFromSurface");
         return;
     }
 
